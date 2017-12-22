@@ -43,7 +43,6 @@ class Jarvis:
             "What's everyone up to this at the moment/how is everyone's workload? @here",
             "How's and what is everyone doing? Busy days? @here",
         ]
-        notgeekbot = '(This is not geekbot, dont worry)'
         self.send(random.choice(msgs), '#whatsupbot')
 
     def send(self, text, to='@sunnyy'):
