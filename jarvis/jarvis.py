@@ -201,7 +201,7 @@ def main():
             if (week_number % 2) is 1:
                 j.timesheet()
         # post whatsupbot channel on certain weekdays but not all the time.
-        if (is_workday) and (random.random() < 0.25):
+        if (is_workday) and (random.random() < 0.4):
             # has it been long enough since latest message in the channel.
             latest_message = j.latest_message(channel='whatsupbot')
             latest_arrow = arrow.get(latest_message['ts'])
@@ -211,7 +211,19 @@ def main():
                 if random.random() <= 0.5:
                     j.whatsup()
                 else:
-                    j.send('hey everybody @here stand up! (like literally) :parrot:', '#random')
+                    msgs = [
+                        '@here stand up NOW! (like literally) :parrot:',
+                        'hey you @here, I have been looking at you, '
+                        'you have been sitting all this time!!! RISE '
+                        'NOW! (like literally standing up) :parrot:',
+                        'Test complete and begin diagnostics... blood '
+                        'toxicity, 24%. It appears that the continued use of '
+                        'the chair is accelerating your condition. I have run '
+                        'simulations on every known sitting position, and '
+                        'none can serve as a viable replacement for standing '
+                        'up.\nYour only option is to stand up. :stark:',
+                    ]
+                    j.send(random.choice(msgs), '#random')
                 j.send('whatsup reminder sent.')
     else:
         if is_workday:
