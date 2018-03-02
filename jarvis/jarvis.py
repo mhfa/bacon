@@ -200,6 +200,11 @@ def main():
             week_number = now.isocalendar()[1]
             if (week_number % 2) is 1:
                 j.timesheet()
+        # walk reminder on weekdays between 2pm and 2:30pm.
+        if (is_workday) and (now.hour == 14) and (now.minute <= 30):
+            msg = 'Hey guys let\'s go for a walk!' \
+                  ' Anyone not walking, please stand up!'
+            j.send(msg, '#random')
         # post whatsupbot channel on certain weekdays but not all the time.
         if (is_workday) and (random.random() < 0.4):
             # has it been long enough since latest message in the channel.
