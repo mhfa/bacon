@@ -202,7 +202,7 @@ def main():
                 j.timesheet()
         # walk reminder on weekdays between 2pm and 2:30pm.
         if (is_workday) and (now.hour == 14) and (now.minute <= 30):
-            msg = 'Hey guys let\'s go for a walk!' \
+            msg = 'Hey @here let\'s go for a walk!' \
                   ' Anyone not walking, please stand up!'
             j.send(msg, '#random')
         # post whatsupbot channel on certain weekdays but not all the time.
