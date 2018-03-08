@@ -175,6 +175,12 @@ def main():
     # passed all checks, update datetime.
     appdata.set_data('last_run_timestamp', now.timestamp)
 
+    # walk reminder on weekdays between 2pm and 2:30pm.
+    if (is_workday) and (now.hour == 14) and (now.minute <= 30):
+        msg = 'Hey @here let\'s go for a walk!' \
+              ' Anyone not walking, please stand up!'
+        j.send(msg, '#random')
+
     # run the following only once per day.
     if not (now.day == last.day):
         # recyling runs only on certain weekdays.
