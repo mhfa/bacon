@@ -177,9 +177,12 @@ def main():
 
     # walk reminder on weekdays between 2pm and 2:30pm.
     if (is_workday) and (now.hour == 14) and (now.minute <= 30):
-        msg = 'Hey @here let\'s go for a walk!' \
-              ' Anyone not walking, please stand up!'
-        j.send(msg, '#random')
+        msgs = ['@here lets walk, lets walk. :walking:']
+        msgs.append(
+            'Hey @here let\'s go for a walk! :walking: Anyone not walking,'
+            ' please stand up!'
+        )
+        j.send(random.choice(msgs), '#random')
 
     # run the following only once per day.
     if not (now.day == last.day):
@@ -218,17 +221,22 @@ def main():
                     j.whatsup()
                 else:
                     msgs = [
-                        '@here stand up NOW! (like literally) :parrot:',
-                        'hey you @here, I have been looking at you, '
-                        'you have been sitting all this time!!! RISE '
-                        'NOW! (like literally standing up) :parrot:',
-                        'Test complete and begin diagnostics... blood '
-                        'toxicity, 24%. It appears that the continued use of '
-                        'the chair is accelerating your condition. I have run '
-                        'simulations on every known sitting position, and '
-                        'none can serve as a viable replacement for standing '
-                        'up.\nYour only option is to stand up. :stark:',
+                        '@here stand up NOW! (like literally) :fast_parrot:'
                     ]
+                    msgs.append(
+                        'hey you @here, I have been looking at you, you have'
+                        ' been sitting all this time!!! RISE NOW! (like'
+                        ' literally standing up) :parrot:'
+                    )
+                    msgs.append(
+                        'Test complete and begin diagnostics...'
+                        f' blood toxicity, {random.randint(12,36)}%. It'
+                        ' appears that the continued use of the chair is'
+                        ' accelerating your condition. I have run simulations'
+                        ' on every known sitting position, and none can serve'
+                        ' as a viable replacement for standing up.'
+                        '\nYour only option is to stand up. :stark:'
+                    )
                     j.send(random.choice(msgs), '#random')
                 j.send('whatsup reminder sent.')
     else:
