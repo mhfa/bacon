@@ -184,8 +184,8 @@ def main():
     # run the following only once per day.
     if not (now.day == last.day):
         # recyling runs only on certain weekdays.
-        if weekday in [2, 4]:
-            except_users = ['jarvis', 'mark']
+        if weekday in [3]:
+            except_users = ['jarvis']
             # add last recyclers to except_users' list so they don't get picked
             # again.
             last_recyclers = appdata.get_data('last_recyclers', [])
